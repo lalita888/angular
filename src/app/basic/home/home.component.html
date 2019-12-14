@@ -1,0 +1,9 @@
+<div class="container mt-4">
+  <div class="d-flex align-items-center flex-column">
+    <img [src]="imgPath" alt="Koala" width="250px" height="250px">
+    <h4>{{imgName}}</h4>
+    <button class="btn btn-primary" (click)="changeImage()">Toggle Image</button>
+    <input type="text" class="mt-3" name="order" [(ngModel)]="order" autocomplete="off" />
+    <p>My order is {{ order }}</p>
+  </div>
+</div>

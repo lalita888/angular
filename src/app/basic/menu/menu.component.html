@@ -1,0 +1,46 @@
+<div class="container mt-4">
+
+    <button class="btn btn-success btn-sm" (click)="showTwoWheeler()">Show Two Wheeler</button>&nbsp;
+    <button class="btn btn-success btn-sm" (click)="showFourWheeler()">Show Four Wheeler</button>
+
+    <hr/>
+
+    <!-- <h4 [hidden]="!isTwoWheeler" [ngClass]="currentClass">Two Wheeler</h4> -->
+    <h4 [hidden]="!isTwoWheeler" class="text-white p-2" [ngClass]="{'bg-success':isClass,'bg-danger':!isClass}">Two Wheeler</h4>
+    <h4 [hidden]="isTwoWheeler" class="text-white p-2" [ngClass]="{'bg-success':isClass,'bg-danger':!isClass}">Four Wheeler</h4>
+
+    <div *ngIf="isTwoWheeler;then twoWheelerList else fourWheelerList">
+        
+    </div>
+
+    <ng-template #twoWheelerList>
+        <!-- two wheeler list -->
+        <ol>
+            <li *ngFor="let item of twoWheeler" appHover (click)="selectVehicle(item)">{{item}}</li>
+        </ol>
+    </ng-template>
+
+    <ng-template #fourWheelerList>
+        <!-- four wheeler list -->
+        <ol>
+            <li *ngFor="let item of fourWheeler" (click)="selectVehicle(item)">{{item}}</li>
+        </ol>
+    </ng-template>
+
+    <hr/>
+
+    <button class="btn btn-warning btn-sm" (click)="changeStyle()">Change Style</button>&nbsp;
+    <button class="btn btn-warning btn-sm" (click)="changeClass()">Change Class</button>
+
+    <div [ngSwitch]="selectedItem" [ngStyle]="myStyle">
+        <div *ngSwitchCase="'gixxer'">You have selected {{selectedItem }} and price is {{priceList[0]}}Rs</div>
+        <div *ngSwitchCase="'shine'">You have selected {{selectedItem }} and price is {{priceList[1]}}Rs</div>
+        <div *ngSwitchCase="'activa'">You have selected {{selectedItem }} and price is {{priceList[2]}}Rs</div>
+        <div *ngSwitchCase="'vespa'">You have selected {{selectedItem }} and price is {{priceList[3]}}Rs</div>
+        <div *ngSwitchCase="'audi'">You have selected {{selectedItem }} and price is {{priceList[4]}}Rs</div>
+        <div *ngSwitchCase="'bmw'">You have selected {{selectedItem }} and price is {{priceList[5]}}Rs</div>
+        <div *ngSwitchCase="'ford'">You have selected {{selectedItem }} and price is {{priceList[6]}}Rs</div>
+        <div *ngSwitchDefault>Please select anyone</div>
+    </div>
+
+</div>

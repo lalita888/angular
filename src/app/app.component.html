@@ -3,13 +3,20 @@
 <div class="container mt-3">
     <div class="card">
         <div class="card-header">
-            <h3>Angular Project</h3>
+            <div class=" d-flex align-items-center justify-content-between">
+                <h3>Angular Project</h3>
+                <nav>
+                    <button class="btn btn-outline-primary btn-sm" routerLink="/home">Home</button>&nbsp;
+                    <button class="btn btn-outline-primary btn-sm" routerLink="/menu">Menu</button>&nbsp;
+                    <button class="btn btn-outline-primary btn-sm" routerLink="/signup">Signup</button>&nbsp;
+                </nav>
+            </div>
         </div>
         <div class="card-body">
             <!-- <app-home></app-home> -->
-            <app-menu></app-menu>
+            <!-- <app-menu></app-menu> -->
+            <router-outlet></router-outlet>
         </div>
     </div>
 </div>
 
-<router-outlet></router-outlet>

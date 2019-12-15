@@ -1,0 +1,47 @@
+<div class="row mt-4">
+  <div class="col-md-6 container jumbotron">
+    <form #frm="ngForm" (ngSubmit)="register(frm.value)" autocomplete="off">
+      <fieldset>
+        <legend>Register - UTD</legend>
+        <div class="form-group">
+          <label>Name:</label>
+          <input type="text" class="form-control" #uname="ngModel" name="uname" ngModel required pattern="[a-zA-Z ]+" />
+        </div>
+        <div *ngIf="uname.invalid && uname.touched" class="alert alert-danger">
+          <div *ngIf="uname.errors.required">Name required</div>
+          <div *ngIf="uname.errors.pattern">Name should be a character</div>
+        </div>
+        <div class="form-group">
+          <label>Gender:</label>
+          <input type="radio" class="ml-3" #gender="ngModel" name="gender" value="male" ngModel required />Male&nbsp;
+          <input type="radio" name="gender" #gender="ngModel" value="female" ngModel required />Female
+        </div>
+        <div *ngIf="gender.invalid && gender.touched" class="alert alert-danger">
+          <div *ngIf="gender.errors.required">Select gender</div>
+        </div>
+        <div class="form-group">
+          <label>City:</label>
+          <select name="city" class="form-control" #city="ngModel" ngModel required>
+            <option value="">Select any one</option>
+            <ng-container *ngFor="let city of cities">
+              <option [value]="city">{{city}}</option>
+            </ng-container>
+          </select>
+        </div>
+        <div *ngIf="city.invalid && city.touched" class="alert alert-danger">
+          <div *ngIf="city.errors.required">Select city</div>
+        </div>
+        <div class="form-group">
+          <label>
+            <input type="checkbox" name="terms" ngModel required />
+            I agree all terms & conditions.
+          </label>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-outline-primary btn-sm" [disabled]="frm.invalid">Submit</button>
+        </div>
+      </fieldset>
+    </form>
+    <p>{{frm.value | json}}</p>
+  </div>
+</div>

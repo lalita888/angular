@@ -1,0 +1,48 @@
+<div class="row mt-4">
+  <div class="col-md-6 container jumbotron">
+    <form [formGroup]="user" (ngSubmit)="register()" autocomplete="off">
+      <fieldset>
+        <legend>Register - URF</legend>
+        <div class="form-group">
+          <label>Name:</label>
+          <input type="text" class="form-control" formControlName="uname" />
+        </div>
+        <div *ngIf="user.controls['uname'].invalid && user.controls['uname'].touched" class="alert alert-danger">
+          <!-- <div *ngIf="user.get('uname').errors.required">Name required</div>
+          <div *ngIf="user.get('uname').errors.pattern">Name should be a character</div> -->
+          {{ getNameErrors() }}
+        </div>
+        <div class="form-group">
+          <label>Gender:</label>
+          <input type="radio" class="ml-3" formControlName="gender" value="male" />Male&nbsp;
+          <input type="radio" formControlName="gender" value="female" />Female
+        </div>
+        <div *ngIf="user.controls['gender'].invalid && user.controls['gender'].touched" class="alert alert-danger">
+          <div *ngIf="user.controls['gender'].errors.required">Select gender</div>
+        </div>
+        <div class="form-group">
+          <label>City:</label>
+          <select formControlName="city" class="form-control">
+            <option value="">Select any one</option>
+            <ng-container *ngFor="let city of cities">
+              <option [value]="city">{{city}}</option>
+            </ng-container>
+          </select>
+        </div>
+        <div *ngIf="user.controls['city'].invalid && user.controls['city'].touched" class="alert alert-danger">
+          <div *ngIf="user.controls['city'].errors.required">Select city</div>
+        </div>
+        <div class="form-group">
+          <label>
+            <input type="checkbox" formControlName="terms" />
+            I agree all terms & conditions.
+          </label>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-outline-primary btn-sm" [disabled]="user.invalid">Submit</button>
+        </div>
+      </fieldset>
+    </form>
+    <p>{{user.value | json}}</p>
+  </div>
+</div>

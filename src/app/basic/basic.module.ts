@@ -10,15 +10,16 @@ import { SignupComponent } from './signup/signup.component';
 import { RegisterUtdComponent } from './register-utd/register-utd.component';
 import { RegisterUrfComponent } from './register-urf/register-urf.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PipesComponent } from './pipes/pipes.component';
 
 @NgModule({
-  declarations: [HomeComponent, MenuComponent, HoverDirective, SignupComponent, RegisterUtdComponent, RegisterUrfComponent, PageNotFoundComponent],
+  declarations: [HomeComponent, MenuComponent, HoverDirective, SignupComponent, RegisterUtdComponent, RegisterUrfComponent, PageNotFoundComponent, PipesComponent],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     BasicRoutingModule
   ],
-  exports: [HomeComponent, MenuComponent,SignupComponent, RegisterUtdComponent, RegisterUrfComponent,PageNotFoundComponent]
+  exports: [HomeComponent, MenuComponent,SignupComponent, RegisterUtdComponent, RegisterUrfComponent,PageNotFoundComponent, PipesComponent]
 })
 export class BasicModule { }

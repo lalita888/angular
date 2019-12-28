@@ -1,0 +1,11 @@
+<div class="container">
+  <p><strong>1. Uppercase:</strong> {{message | uppercase}}</p>
+  <p><strong>2. Lowercase:</strong> {{message | lowercase}}</p>
+  <p><strong>3. Titlecase:</strong> {{message | titlecase}}</p>
+  <p><strong>4. Slice:</strong> {{message | slice:'0':'4'}}</p>
+  <p><strong>5. JSON:</strong> {{person | json}}</p>
+  <p><strong>6. Number:</strong> {{ 5.6789 | number:'3.0-3'}}</p> 
+  <p><strong>7. Currency:</strong> {{ 5.6789 | currency:'INR':'code'}}</p> 
+  <p><strong>8. Percent:</strong> {{ .15 | percent }}</p> 
+  <p><strong>9. Date:</strong> {{ today | date:'d/M/y, h:m:s a' }}</p> <!-- short,medium,long,full -->
+</div>

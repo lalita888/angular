@@ -1,0 +1,15 @@
+<app-child [title]="formTitle" (childEvent)="addStudent($event)"></app-child>
+<hr>
+<h4>List of Students</h4>
+
+<div *ngIf="students.length; else noData">
+  <ol>
+    <li *ngFor="let std of students">{{ std | titlecase}}</li>
+  </ol>
+</div>
+
+<ng-template #noData>
+  please add student.
+</ng-template>
+
+

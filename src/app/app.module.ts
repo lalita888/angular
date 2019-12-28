@@ -12,8 +12,8 @@ import { BasicModule } from './basic/basic.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    BasicModule
+    BasicModule,
+    AppRoutingModule    
   ],
   providers: [],
   bootstrap: [AppComponent]

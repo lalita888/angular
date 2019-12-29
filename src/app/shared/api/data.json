@@ -1,0 +1,25 @@
+{
+  "employee": [
+    {
+      "id": 2,
+      "name": "mahendra khande",
+      "gender": "male",
+      "city": "osmanabad",
+      "terms": true
+    },
+    {
+      "id": 3,
+      "name": "kajal jagtap",
+      "gender": "female",
+      "city": "nashik",
+      "terms": true
+    },
+    {
+      "name": "anmol",
+      "gender": "male",
+      "city": "pune",
+      "terms": true,
+      "id": 4
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EmployeeService } from 'src/app/shared/services/employee.service';
 
 @Component({
   selector: 'app-home',
@@ -11,9 +12,14 @@ export class HomeComponent implements OnInit {
   imgPath:string = "../../../assets/images/Koala.jpg";
   toggle:boolean = false;
   order:string = "Empty";
-  constructor() { }
+  constructor(private _service:EmployeeService) { }
 
   ngOnInit() {
+    this._service.getEmployees().subscribe(
+      (res) => {
+        console.log(res);
+      }
+    )
   }
 
   changeImage(){

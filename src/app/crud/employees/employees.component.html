@@ -1,3 +1,32 @@
-<p>
-  employees works!
-</p>
+<div class="container">
+
+  <div class="d-flex justify-content-between mb-3">
+    <h4>Employee List</h4>
+    <button class="btn btn-primary btn-sm" routerLink="add">Create</button>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Sr. No</th>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>City</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let emp of employees">
+        <tr>
+          <td>{{emp.position+"."}}</td>
+          <td>{{emp.name}}</td>
+          <td>{{emp.gender}}</td>
+          <td>{{emp.city}}</td>
+          <td>
+            <a href="javascript:void(0)" [routerLink]="['edit',emp.id]" >edit</a> | 
+            <a href="javascript:void(0)" (click)="deleteEmp(emp)">delete</a>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

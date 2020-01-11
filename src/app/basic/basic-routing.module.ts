@@ -5,34 +5,39 @@ import { MenuComponent } from './menu/menu.component';
 import { SignupComponent } from './signup/signup.component';
 import { RegisterUtdComponent } from './register-utd/register-utd.component';
 import { RegisterUrfComponent } from './register-urf/register-urf.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PipesComponent } from './pipes/pipes.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from '../shared/auth/auth.guard';
 
 const routes: Routes = [
-  {
-    path:'',
-    redirectTo:'home',
-    pathMatch:'full'
-  },
   // {
   //   path:'',
-  //   component:HomeComponent
+  //   redirectTo:'login',
+  //   pathMatch:'full'
   // },
   {
+    path:'',
+    component:LoginComponent
+  },
+  {
     path:'home',
-    component:HomeComponent
+    component:HomeComponent,
+    canActivate:[AuthGuard]
   },
   {
     path:'menu',
-    component:MenuComponent
+    component:MenuComponent,
+    canActivate:[AuthGuard]
   },
   {
     path:'pipes',
-    component:PipesComponent
+    component:PipesComponent,
+    canActivate:[AuthGuard]
   },
   {
     path:'signup',
     component:SignupComponent,
+    canActivate:[AuthGuard],
     children:[
       {
         path:'',

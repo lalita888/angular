@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Employee } from '../models/employee';
-
+import { Login } from '../models/Login';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,7 @@ import { Employee } from '../models/employee';
 export class EmployeeService {
 
   baseURL:string = "http://localhost:3000/employee";
+  loginURL:string = "http://localhost:3000/login";
   constructor(private _http:HttpClient) { }
 
   getEmployees(){
@@ -32,4 +33,12 @@ export class EmployeeService {
     return this._http.delete(apiURL);
   }
   
+  getUserLogins(){
+    return this._http.get<Login[]>(this.loginURL);
+  }
+
+  logoutUser(){
+    return sessionStorage.clear();
+  }
+
 }

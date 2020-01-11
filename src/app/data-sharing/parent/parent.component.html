@@ -1,6 +1,6 @@
-<app-child [title]="formTitle" (childEvent)="addStudent($event)"></app-child>
+<app-child #childComp [title]="formTitle" (childEvent)="addStudent($event)"></app-child>
 <hr>
-<h4>List of Students</h4>
+<h4>{{ childComp.heading }}</h4>
 
 <div *ngIf="students.length; else noData">
   <ol>
